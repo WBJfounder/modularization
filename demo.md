@@ -1,7 +1,7 @@
 ##本文档就是本人理解各种规范用（建议学过开发的人看）
 ###模块系统主要解决模块的定义、依赖和导出
 ##下面开始各种模块系统的演变
-### <script>标签
+### script标签
 <script src="module1.js"></script>
 <script src="module2.js"></script>
 这是最原始的 JavaScript 文件加载方式，如果把每一个文件看做是一个模块，
