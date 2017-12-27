@@ -1,7 +1,7 @@
-##本文档就是本人理解各种规范用（建议学过开发的人看）
-###模块系统主要解决模块的定义、依赖和导出
-##下面开始各种模块系统的演变
-### script标签
+## 本文档就是本人理解各种规范用（建议学过开发的人看）
+### 模块系统主要解决模块的定义、依赖和导出
+## 下面开始各种模块系统的演变
+###  script标签
 <script src="module1.js"></script>
 <script src="module2.js"></script>
 这是最原始的 JavaScript 文件加载方式，如果把每一个文件看做是一个模块，
@@ -19,7 +19,7 @@
 
 在大型项目中各种资源难以管理，长期积累的问题导致代码库混乱不堪
 
-###CommonJS
+### CommonJS
 服务器端的 Node.js 遵循 CommonJS规范，该规范的核心思想是允许模块通过 require 方法来同步加载所要依赖的其他模块，
 然后通过 exports 或 module.exports 来导出需要暴露的接口。
 require("module");
@@ -49,7 +49,7 @@ modules-webmake，类似Browserify，还不如 Browserify 灵活
 
 wreq，Browserify 的前身
 
-###AMD
+### AMD
 Asynchronous Module Definition 规范其实只有一个主要接口 define(id?, dependencies?, factory)，
 它要在声明模块的时候指定所有的依赖 dependencies，并且还要当做形参传到 factory 中，对于依赖的模块提前执行，依赖前置。
 define("module", ["dep1", "dep2"], function(d1, d2) {
@@ -73,7 +73,7 @@ require(["module", "../file"], function(module, file) { /* ... */ })
 RequireJS，
 curl
 
-###CMD
+### CMD
 Common Module Definition 规范和 AMD 很相似，尽量保持简单，并与 CommonJS 和 Node.js 的 Modules 规范保持了很大的兼容性。
 define(function(require, exports, module) {
   var $ = require('jquery');
@@ -95,7 +95,7 @@ define(function(require, exports, module) {
 Sea.js；
 coolie
 
-###ES6 模块
+### ES6 模块
 EcmaScript6 标准增加了 JavaScript 语言层面的模块体系定义。ES6 模块的设计思想，是尽量的静态化，使得编译时就能确定模块的依赖关系，以及输入和输出的变量。
 CommonJS 和 AMD 模块，都只能在运行时确定这些东西。
 import "jquery";
@@ -117,5 +117,5 @@ module "localModule" {}
 
 Babel
 
-##理想的模块化
+## 理想的模块化
 可以兼容多种模块风格，尽量可以利用已有的代码，不仅仅只是 JavaScript 模块化，还有 CSS、图片、字体等资源也需要模块化。
